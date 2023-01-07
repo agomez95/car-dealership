@@ -4,7 +4,8 @@ import { BrandsController } from './brands.controller';
 
 @Module({
   controllers: [BrandsController],
-  providers: [BrandsService]
+  providers: [BrandsService],
+  exports: [BrandsService] //para hacer los seeds se debe exportar el servicio
 })
 
 export class BrandsModule {}

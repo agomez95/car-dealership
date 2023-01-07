@@ -9,11 +9,11 @@ import { BadRequestException, NotFoundException } from '@nestjs/common/exception
 export class BrandsService {
 
   private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Toyota',
-      createdAt: new Date().getTime()
-    }
+    // {
+    //   id: uuid(),
+    //   name: 'Toyota',
+    //   createdAt: new Date().getTime()
+    // }
   ]
 
   create(createBrandDto: CreateBrandDto) {
@@ -61,5 +61,9 @@ export class BrandsService {
   remove(id: string) {
     this.brands = this.brands.filter(brand => brand.id !== id);
     return `The car with id ${id} was deleted`;
+  }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
   }
 }
